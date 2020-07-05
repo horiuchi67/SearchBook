@@ -30,7 +30,7 @@
 <%= link_to "", user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench"%>
 <% end %>
 </div>
-            <h2>New book</h2>
+            <h2>New Movie</h2>
           <% if @book.errors.any? %>
               <ul>
                   <%= @book.errors.count %><span>error</span>
@@ -55,7 +55,7 @@
         <% end %>
       </div>
       <div class="col-xs-9">
-        <h2>Book detail</h2>
+        <h2>Movie detail</h2>
           <table class="table">
             <tbody>
                 <tr>
