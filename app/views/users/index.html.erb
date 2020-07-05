@@ -1,0 +1,72 @@
+<div class="body">
+    <div class="container">
+      <div class="row">
+          <div class="col-xs-3">
+          <h2>User info</h2>
+          <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, format: 'jpeg', class: " ", fallback: "no_image.jpg" %> 
+          <table class="table">
+              <tbody>
+                <tr></tr> 
+                <tr>
+                  <th>name</th>
+                  <th><%= current_user.name %></th>
+                </tr>
+                <tr>
+                  <th>introduction</th>
+                  <th><%= current_user.introduction %></th>
+                </tr>
+            </tbody>
+          </table>
+        <div class="row">
+            <%= link_to "", edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench"%>
+        </div>
+            <h2>New book</h2>
+          <% if @book.errors.any? %>
+              <ul>
+                  <%= @book.errors.count %><span>error</span>
+                  <% @book.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                  <% end %>
+              </ul>
+          <% end %>
+
+        <%= form_for(@book) do |f| %>
+          <div class="field row">
+              <label>Title</label>
+              <%= f.text_field :title, class:"col-xs-12"%>
+          </div>
+          <div class="field row">
+              <label>Opinion</label>
+              <%= f.text_area :body, class:"col-xs-12" %>
+          </div><br>
+          <div class="actions row">
+              <%= f.submit 'Create Book',class:"btn btn-primary col-xs-12" %>
+            </div>
+        <% end %>
+      </div>
+      <div class="col-xs-9">
+        <h2>Users</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>image</th>
+              <th>name</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= attachment_image_tag user, :profile_image, :fill, 20, 20, format: 'jpeg', class: " ", fallback: "no_image.jpg" ,size:'20x20' %></td> 
+                <td><%= user.name %></td>
+                <td><%= link_to "Show", user_path(user) %><td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      
+  </div>
+</div>
+</div>
+</div>

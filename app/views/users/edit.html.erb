@@ -1,0 +1,30 @@
+<div class="body">
+   <div class="container"> <!-- ここを追加 -->
+      <div class="row">
+        <div class="col-xs-3">
+<% if @user.errors.any? %>
+              <ul>
+                  <%= @user.errors.count %><span>error</span>
+                  <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                  <% end %>
+              </ul>
+          <% end %>
+        <h2>User info</h2>
+
+
+         <%= form_for(@user) do |f| %>
+
+            <label for="user_name">Name</label>
+            <%= f.text_field :name, autofocus: true, class:"form-control", placeholder:"名前"%>
+
+            <label for="user_image">Image</label>
+            <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
+            <label for="user_introduction">Introduction</label>
+            <%= f.text_field :introduction, autofocus: true, class:"form-control", id:"inputEmail", placeholder:""%>
+            <%= f.submit "Update User" %>
+          <% end %>
+        </div>
+      </div>
+   </div>
+</div>
