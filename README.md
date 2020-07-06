@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# <アプリ名>
+FreeMovie
 
-Things you may want to cover:
+## サイト概要
+映画の感想の投稿、画像投稿ができ、コメント機能、ログイン機能、フォロー機能、非同期通信、メール配信、地図表示、通知があります。
+S3を使用します。
 
-* Ruby version
+### サイトテーマ
+感想投稿SNS
 
-* System dependencies
+### テーマを選んだ理由
+私は映画を見るのが趣味で、同じ趣味を持つ人たち向けのSNSを作りたかったから。
 
-* Configuration
+### ターゲットユーザ
+映画を見た人や映画に関心がある人。
 
-* Database creation
+### 主な利用シーン
+映画を見終わった後や、どの映画を見ようか迷っているとき、時間つぶしの時に利用します。
 
-* Database initialization
+## 設計書
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 機能一覧
+<https://docs.google.com/spreadsheets/d/1J8iZvwhZPA0tqpTelRsm3Gfu0YqxZEHPTnaVued7Cnw/edit#gid=0>
