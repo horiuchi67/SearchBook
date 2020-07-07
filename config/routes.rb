@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   get 'relationships/destroy'
   get 'home/about' => 'home#about', as: 'about'
   root "home#top"
-  devise_for :users
 
+  devise_for :users, :controllers => {
+    :sessions      => "users/sessions",
+    :registrations => "users/registrations",
+    :passwords     => "users/passwords"
+  }
   resources :books, only: [:new, :create, :index, :show, :edit, :update] do
   	resources :book_comments, only: [:create, :destroy]
   	resource :favorites, only: [:create, :destroy]

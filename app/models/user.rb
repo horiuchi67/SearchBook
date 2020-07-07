@@ -14,7 +14,21 @@ class User < ApplicationRecord
 
   has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
   has_many :followers, through: :passive_relationships, source: :following
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+  before_validation :set_address
+  include JpPrefecture
+  jp_prefecture :prefecture_code
+  def set_address
+    self.address=prefecture_name+address_city+address_street
+  end
+  def prefecture_name
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+  end
 
+  def prefecture_name=(prefecture_name)
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  end
   def followed_by?(user)
     passive_relationships.find_by(following_id: user.id).present?
   end
