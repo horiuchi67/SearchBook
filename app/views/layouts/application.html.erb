@@ -13,7 +13,7 @@
     <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <nav class="nav navbar-nav navbar-left">
-      <span class="header">Bookers</span>
+      <span class="header">FreeMovie</span>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
@@ -33,12 +33,34 @@
     </nav>
   </div>
 </header>
+<div class="body">
+  <% if user_signed_in? %>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3"><br>
+        <%= form_tag(search_path , method: :get) do %>
+            <%= text_field(@search_content, :search_word)%>
+            <%= select(@search_content, :search_model, [["Book", "book"],["User","user"]])%>
+            <%= select(@search_content, :search_method, [["前方一致","forward_match"], ["後方一致","backward_match"], ["完全一致","perfect_match"], ["部分一致","partial_match"]])%>
+            <%= submit_tag "検索" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<div class="body">
+    <div class="container">
+      <div class="row">
     <%= yield %>
+  </div>
+</div>
+</div>
     <footer>
   <div class="container">
     <div class="row">
       <div class="col-xs-3 col-xs-offset-9">
-        <p>CopyRight Infratop.inc</p>
+        <p>CopyRight FreeM.inc</p>
       </div>
     </div>
   </div>

@@ -1,6 +1,4 @@
-<div class="body">
-    <div class="container">
-      <div class="row">
+
           <div class="col-xs-3">
             <% if flash[:notice] %>
               <div class="flash">
@@ -20,10 +18,24 @@
                   <th>introduction</th>
                   <th><%= @user.introduction %></th>
                 </tr>
+                <tr>
+                   <th>follows</th><th>
+                <%= link_to follows_user_path(current_user) do %>
+                  <strong id="following" class="stat">
+                    <%= current_user.followings.count %>
+                  </strong>
+                <% end %></th>
+               </tr>
+               <tr><th>followers</th><th>
+                <%= link_to followers_user_path(current_user) do %>
+                  <strong id="followers" class="stat">
+                    <%= current_user.followers.count %>
+                  </strong>
+                <% end %>
+              </th></tr>
             </tbody>
           </table>
         <div class="row">
-            
                             <% if @user == current_user %>
 <%= link_to "", edit_user_path(@user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench"%>
 <% else %>
@@ -50,7 +62,7 @@
               <%= f.text_area :body, class:"col-xs-12" %>
           </div><br>
           <div class="actions row">
-              <%= f.submit 'Create Movie',class:"btn btn-primary col-xs-12" %>
+              <%= f.submit 'Create Book',class:"btn btn-primary col-xs-12" %>
             </div>
         <% end %>
       </div>
@@ -71,15 +83,25 @@
                   <td><%= link_to "Edit", edit_book_path(@book1),class:"btn-sm btn-success" %><td>
                   <td><%= link_to "Destroy", destroy_book_path(@book1), class:"btn-sm btn-danger",method: :delete, "data-confirm" => "本当に消しますか？" %>
                     <% end %>
-                  </td>
+                  </td><td>
+                  <div id="favorites_buttons_<%= @book1.id %>">
+                  <%= render partial: 'favorites/favorite', locals: { book1: @book1} %>
+                </div></td>
+                <td><%= @book1.book_comments.count %>件コメント</td>
                 </tr>
 
             </tbody>
           </table>
-      
-
+          <table id="book_comment">
+            <%= render 'book_comments/comment', book1: @book1 %>
+        </table>
+          <%= form_with(model: [@book1, @book_comment] ) do |f| %>
+              <div class="row">
+                  <div class="col-sm-12">
+                      <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+                  </div>
+              </div>
+              <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+          <% end %>
   </div>
       </div>
-    </div>
-</div>
-</div>
