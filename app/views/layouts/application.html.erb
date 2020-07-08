@@ -13,14 +13,14 @@
     <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <nav class="nav navbar-nav navbar-left">
-      <span class="header">FreeMovie</span>
+      <span class="header">SearchBook</span>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><%= link_to "  Home", user_path(current_user) , class:"glyphicon glyphicon-home" %></li>
           <li><%= link_to "  Users", users_path , class:"glyphicon glyphicon-user" %></li>
-          <li><%= link_to "  Movies", books_path ,class:"glyphicon glyphicon-film" %></li>
+          <li><%= link_to "  Books", books_path ,class:"glyphicon glyphicon-search" %></li>
           <li><%= link_to "  logout", destroy_user_session_path, method: :delete ,class:"glyphicon glyphicon-log-out" %></li>
         <% else %>
           <li><%= link_to "  Home",root_path , class:"glyphicon glyphicon-home" %></li>
