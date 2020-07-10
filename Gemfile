@@ -69,6 +69,9 @@ gem 'pry-byebug'
 gem 'jp_prefecture'
 gem "geocoder"
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
 gem "refile-s3"
 gem 'carrierwave'
 gem 'fog'
