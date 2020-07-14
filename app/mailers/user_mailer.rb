@@ -6,8 +6,8 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.registration_confirmation.subject
   #
   def registration_confirmation(resource)
-    @greeting = "Hi"
+    @greeting = "ご登録ありがとうございます。"
 
-    mail(to: resource.email, subject: '私の素敵なサイトへようこそ')
+    mail(to: resource.email, subject: '『SearchBook』へようこそ')
   end
 end
