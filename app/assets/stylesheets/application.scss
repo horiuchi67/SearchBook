@@ -14,8 +14,9 @@
  *= require_self
  */
  @import "bootstrap-sprockets";
- @import "bootstrap";  
- 
+ @import "bootstrap";
+ @import "font-awesome";
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

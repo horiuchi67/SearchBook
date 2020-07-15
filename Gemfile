@@ -73,5 +73,4 @@ group :production do
   gem 'mysql2'
 end
 gem "refile-s3"
-gem 'carrierwave'
-gem 'fog'
+gem 'font-awesome-rails'
