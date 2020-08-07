@@ -15,21 +15,17 @@
       <tr>
         <th>follows</th>
         <th>
-          <%= link_to follows_user_path(current_user) do %>
             <strong id="following" class="stat">
               <%= current_user.followings.count %>
             </strong>
-          <% end %>
         </th>
       </tr>
       <tr>
         <th>followers</th>
         <th>
-          <%= link_to followers_user_path(current_user) do %>
             <strong id="followers" class="stat">
               <%= current_user.followers.count %>
             </strong>
-          <% end %>
         </th>
       </tr>
     </tbody>

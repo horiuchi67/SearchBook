@@ -15,21 +15,17 @@
       <tr>
         <th>follows</th>
         <th>
-          <%= link_to follows_user_path(current_user) do %>
             <strong id="following" class="stat">
               <%= current_user.followings.count %>
             </strong>
-          <% end %>
         </th>
       </tr>
       <tr>
         <th>followers</th>
         <th>
-          <%= link_to followers_user_path(current_user) do %>
             <strong id="followers" class="stat">
               <%= current_user.followers.count %>
             </strong>
-          <% end %>
         </th>
       </tr>
     </tbody>
@@ -54,17 +50,15 @@
         <tr>
           <td><%= attachment_image_tag user, :profile_image, :fill, 20, 20, format: 'jpeg', class: " ", fallback: "no_image.jpg" ,size:'20x20' %></td> 
           <td><%= user.name %></td>
-          <td>フォロー数:<%= link_to follows_user_path(user) do %>
+          <td>フォロー数:
             <strong id="following" class="stat">
               <%= user.followings.count %>
             </strong>
-          <% end %>
           </td>
-          <td>フォロワー数:<%= link_to followers_user_path(user) do %>
+          <td>フォロワー数:
             <strong id="followers" class="stat">
               <%= user.followers.count %>
             </strong>
-            <% end %>
           </td>
           <td>
             <% if current_user != user %>

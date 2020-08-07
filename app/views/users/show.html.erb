@@ -20,22 +20,19 @@
 			</tr>
 			<tr>
 				<th>
-			  		<%= link_to follows_user_path(@user) do %>
 			    		<strong id="following" class="stat">
 			      			<%= @user.followings.count %>
 			    		</strong>
 			    		following
-			  		<% end %>
 			  	</th>
 			</tr>
 			<tr>
 				<th>
-			  		<%= link_to followers_user_path(@user) do %>
 			    		<strong id="followers" class="stat">
 			      			<%= @user.followers.count %>
 			    		</strong>
 			    		followers
-			  		<% end %>
+
 				</th>
 			</tr>
 		</tbody>
