@@ -23,8 +23,14 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+body {
+    background-color: #EEEEEE;
+}
 .body {
     margin-top: 51px;
+}
+.body1 {
+    padding-top: 10px;
 }
 header .navbar-left span {
     font-size: 20px;
