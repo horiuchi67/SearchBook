@@ -45,9 +45,9 @@
 			<%= link_to "", edit_user_path(@user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench"%>
 		<% else %>
 			<% if @user.followed_by?(current_user) %>
-                <p><%=link_to "フォロー外す", user_relationships_path(@user.id), method: :delete,class:"btn btn-primary" %></p>
+                <p><%=link_to "フォロー中", user_relationships_path(@user.id), method: :delete,class:"btn btn-primary" %></p>
             <% else %>
-                <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post,	class:"btn btn-success"  %></p>
+                <p><%=link_to "フォロー", user_relationships_path(@user.id), method: :post,	class:"btn btn-success"  %></p>
             <% end %>
 		<% end %>
 	</div>
@@ -79,7 +79,6 @@
 	</table>
 </div>
 <div>
-<br>
 <% if @user.id == current_user.id %>
 	<div class="container">
 		<script type="text/javascript">
