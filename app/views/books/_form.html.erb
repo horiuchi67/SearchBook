@@ -1,4 +1,4 @@
-<h2>New Book</h2>
+<h2>新規投稿</h2>
   <% if book.errors.any? %>
     <ul>
         <%= book.errors.count %><span>error</span>
@@ -9,15 +9,14 @@
   <% end %>
 <%= form_for(book) do |f| %>
   <div class="field row">
-      <label>Title</label>
+      <label>タイトル</label>
       <%= f.text_field :title, class:"col-xs-12"%>
   </div>
   <div class="field row">
-      <label>Opinion</label>
+      <label>感想</label>
       <%= f.text_area :body, class:"col-xs-12" %>
   </div><br>
   <div class="actions row">
-      <%= f.submit 'Create Book',class:"btn btn-primary col-xs-12" %>
+      <%= f.submit '投稿',class:"btn btn-primary col-xs-12" %>
     </div>
 <% end %>
-<br>

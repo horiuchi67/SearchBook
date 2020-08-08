@@ -20,7 +20,7 @@
             <% if user_signed_in? %>
               <li><%= link_to "  Home", user_path(current_user) , class:"glyphicon glyphicon-home" %></li>
               <li><%= link_to "  ユーザー", users_path , class:"glyphicon glyphicon-user" %></li>
-              <li><%= link_to "  本", books_path ,class:"glyphicon glyphicon-search" %></li>
+              <li><%= link_to "  書籍", books_path ,class:"glyphicon glyphicon-search" %></li>
               <li><%= link_to "  ログアウト", destroy_user_session_path, method: :delete ,class:"glyphicon glyphicon-log-out" %></li>
             <% else %>
               <li><%= link_to "  Home",root_path , class:"glyphicon glyphicon-home" %></li>
@@ -33,8 +33,8 @@
         </nav>
       </div>
     </header>
-    <div class="body">
-      <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <div class="body">
         <div class="container">
           <div class="row">
             <div class="col-md-6 col-md-offset-3"><br>
@@ -47,25 +47,43 @@
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
-    <div class="body">
-      <div class="container">
-        <div class="row">
-          <%= yield %>
-        </div>
+
       </div>
-    </div>
-    <footer>
-      <div class="body">
+
         <div class="container">
           <div class="row">
-            <div class="col-xs-3 col-xs-offset-9">
-              <p>CopyRight SearchBook.inc</p>
+            <%= yield %>
+          </div>
+        </div>
+
+      <footer>
+        <div class="body2">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-3 col-xs-offset-9">
+                <p>CopyRight SearchBook.inc</p>
+              </div>
             </div>
           </div>
         </div>
+      </footer>
+    <% else %>
+      <div class="body">
+        <div class="container">
+          <div class="row">
+            <%= yield %>
+          </div>
+        </div>
       </div>
-    </footer>
+      <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-3 col-xs-offset-9">
+                <p>CopyRight SearchBook.inc</p>
+              </div>
+            </div>
+          </div>
+      </footer>
+    <% end %>
   </body>
 </html>

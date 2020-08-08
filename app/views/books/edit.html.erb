@@ -1,6 +1,6 @@
 <p id="notice"></p>
 <div class="col-md-6 col-md-offset-3">
-	<h1>Editing Book</h1>
+	<h1>編集ページ</h1>
 	　  <% if @book.errors.any? %>
 		    <ul>
 			    <%= @book.errors.count %><span>error</span>
@@ -11,18 +11,18 @@
 	　  <% end %>
 	    <%= form_for(@book) do |f| %>
 		    <div class="field row">
-	    	    <label>Title</label>
+	    	    <label>タイトル</label>
 	    	    <%= f.text_field :title, class:"col-xs-12"%>
 	 	    </div>
 	 	    <div class="field row">
-		        <label>Opinion</label>
+		        <label>感想</label>
 		        <%= f.text_area :body, class:"col-xs-12" %>
 		    </div><br>
 	 	    <div class="actions row">
-	    	    <%= f.submit 'Update Book',class:"btn btn-primary col-xs-12" %>
+	    	    <%= f.submit '更新',class:"btn btn-primary col-xs-12" %>
 	  	    </div>
 	    <% end %>
-	<%= link_to "Show", book_path(@book) %> |
-	<%= link_to "Back", books_path %>
+	<%= link_to "詳細ページ", book_path(@book) %> |
+	<%= link_to "一覧ページ", books_path %>
 </div>
 <div class="col-md-3"></div>
