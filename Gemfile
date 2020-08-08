@@ -78,3 +78,5 @@ group :production do
 end
 gem "refile-s3"
 gem 'font-awesome-rails'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
