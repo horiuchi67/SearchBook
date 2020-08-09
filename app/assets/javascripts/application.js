@@ -15,9 +15,9 @@
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
-jQuery(document).on('turbolinks:load', function(){
+
+$(document).on('turbolinks:load', function(){
 
 $(".theTarget").skippr({
   // スライドショーの変化（"fade" or "slide"）
