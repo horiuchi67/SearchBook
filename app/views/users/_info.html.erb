@@ -1,0 +1,48 @@
+
+  <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', class: " ", fallback: "no_image.jpg" %> 
+  <table class="table">
+    <tbody>
+      <tr></tr>
+      <tr>
+        <th>ユーザー名</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <th>自己紹介</th>
+        <th><%= user.introduction %></th>
+      </tr>
+      <tr>
+        <th>フォロー</th>
+        <th>
+          <%= link_to follows_user_path(user) do %>
+            <strong id="following" class="stat">
+              <%= user.followings.count %>
+            </strong>
+          <% end %>
+        </th>
+      </tr>
+      <tr>
+        <th>フォロワー</th>
+        <th>
+          <%= link_to followers_user_path(user) do %>
+            <strong id="followers" class="stat">
+              <%= user.followers.count %>
+            </strong>
+          <% end %>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+  <% if user == current_user %>
+  
+    <%= link_to "", edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench"%>
+  <% else %>
+      <% if user.followed_by?(current_user) %>
+                <center><p><%=link_to "フォロー中", user_relationships_path(user.id), method: :delete,class:"btn btn-primary btn-sm" %></p></center>
+            <% else %>
+                <center><p><%=link_to "フォロー　", user_relationships_path(user.id), method: :post,  class:"btn btn-success btn-sm"  %></p></center>
+            <% end %>
+
+  <% end %>
+  </div>

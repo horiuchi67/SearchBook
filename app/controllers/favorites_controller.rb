@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+	before_action :authenticate_user!
 	def create
 		@book1 = Book.find(params[:book_id])
 		favorite = current_user.favorites.build(book_id: @book1.id)

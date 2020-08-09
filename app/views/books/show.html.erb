@@ -4,47 +4,9 @@
       <%= flash[:notice] %>
     </div>
   <% end %>
-  <h2>ユーザー情報</h2>
-    <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: " ", fallback: "no_image.jpg" %> 
-  <table class="table">
-    <tbody>
-      <tr></tr> 
-      <tr>
-        <th>ユーザー名</th>
-        <th><%= @user.name %></th>
-      </tr>
-      <tr>
-        <th>自己紹介</th>
-        <th><%= @user.introduction %></th>
-      </tr>
-      <tr>
-        <th>フォロー</th><th>
-          <%= link_to follows_user_path(current_user) do %>
-            <strong id="following" class="stat">
-              <%= current_user.followings.count %>
-            </strong>
-          <% end %>
-        </th>
-      </tr>
-      <tr>
-        <th>フォロワー</th>
-        <th>
-          <%= link_to followers_user_path(current_user) do %>
-            <strong id="followers" class="stat">
-              <%= current_user.followers.count %>
-            </strong>
-          <% end %>
-        </th>
-      </tr>
-    </tbody>
-  </table>
-  <div class="row">
-    <% if @user == current_user %>
-      <%= link_to "", edit_user_path(@user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench"%>
-    <% else %>
-      <%= link_to "", user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench"%>
-    <% end %>
-  </div>
+  <h3>ユーザー情報</h3>
+  <%= render 'users/info', user: @user,now: ''%>
+  <h3>新規投稿</h3>
   <%= render 'books/form', book: @book %>
 </div>
 <div class="col-xs-9">
