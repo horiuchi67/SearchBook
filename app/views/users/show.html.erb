@@ -11,11 +11,11 @@
 		<tbody>
 			<tr></tr>
 			<tr>
-				<th>name</th>
+				<th>ユーザー名</th>
 				<th><%= @user.name %></th>
 			</tr>
 			<tr>
-				<th>introduction</th>
+				<th>自己紹介</th>
 				<th><%= @user.introduction %></th>
 			</tr>
 			<tr>
@@ -24,7 +24,7 @@
 			    		<strong id="following" class="stat">
 			      			<%= @user.followings.count %>
 			    		</strong>
-			    		following
+			    		フォロー
 			  		<% end %>
 			  	</th>
 			</tr>
@@ -34,7 +34,7 @@
 			    		<strong id="followers" class="stat">
 			      			<%= @user.followers.count %>
 			    		</strong>
-			    		followers
+			    		フォロワー
 			  		<% end %>
 				</th>
 			</tr>
