@@ -2,6 +2,9 @@ class BooksController < ApplicationController
     before_action :authenticate_user!
     def top
     end
+    def new
+      @book = Book.new
+    end
     def create
   	  @book = Book.new(book_params)
   	  @book.user_id = current_user.id
@@ -46,7 +49,7 @@ class BooksController < ApplicationController
       end
     end
 		def book_params
-  	  	params.require(:book).permit(:title, :body)
+  	  	params.require(:book).permit(:title, :author, :body)
 		end
 
 end

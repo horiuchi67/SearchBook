@@ -1,3 +1,5 @@
+<div class="body">
+</div>
 <p id="notice"></p>
 <div class="col-md-6 col-md-offset-3">
 	<h1>編集ページ</h1>
@@ -15,6 +17,10 @@
 	    	    <%= f.text_field :title, class:"col-xs-12"%>
 	 	    </div>
 	 	    <div class="field row">
+			  <label>著者</label>
+			  <%= f.text_field  :author, class:"col-xs-12" %>
+			</div><br>
+	 	    <div class="field row">
 		        <label>感想</label>
 		        <%= f.text_area :body, class:"col-xs-12" %>
 		    </div><br>
@@ -22,7 +28,7 @@
 	    	    <%= f.submit '更新',class:"btn btn-primary col-xs-12" %>
 	  	    </div>
 	    <% end %>
-	<%= link_to "詳細ページ", book_path(@book) %> |
-	<%= link_to "一覧ページ", books_path %>
+	<%= link_to "戻る", book_path(@book) %> |
+	<%= link_to "書籍一覧ページ", books_path %>
 </div>
 <div class="col-md-3"></div>

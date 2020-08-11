@@ -26,13 +26,16 @@ body {
     background-color: #EEEEEE;
 }
 .body {
-    margin-top: 35px;
+    margin-top: 60px;
 }
 .body1 {
     padding-top: 10px;
 }
 .body2 {
     margin-top: 5px;
+}
+.body3 {
+    margin-top: 25px;
 }
 header .navbar-left span {
     font-size: 20px;
@@ -58,9 +61,16 @@ header .navbar-left span {
 .center{
     text-align:center;
 }
-th {
-  word-break: break-all;
+table {
+  width: 100%;
+  table-layout: fixed;
 }
-td {
-  word-break: break-all;
+
+table td {
+  /*word-break: break-all;*/
+  overflow-wrap : break-word;
+}
+table th {
+  /*word-break: break-all;*/
+  overflow-wrap : break-word;
 }

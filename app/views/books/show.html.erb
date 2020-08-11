@@ -1,32 +1,37 @@
-<div class="col-xs-3">
-  <% if flash[:notice] %>
+<div class="body">
+</div>
+<% if flash[:notice] %>
     <div class="flash">
       <%= flash[:notice] %>
     </div>
-  <% end %>
-  <h3>ユーザー情報</h3>
-  <%= render 'users/info', user: @user,now: ''%>
-  <h3>新規投稿</h3>
-  <%= render 'books/form', book: @book %>
-</div>
-<div class="col-xs-9">
+<% end %>
+
+<div class="col-xs-12">
   <h2>　</h2>
   <table class="table">
+    <thead>
+      <tr>
+        <th>ユーザー名</th>
+        <th>タイトル</th>
+        <th>著者</th>
+        <th>感想</th>
+        <th colspan="3"></th>
+      </tr>
     <tbody>
       <tr>
         <td>
           <%= link_to user_path(@user) do %>
             <%= attachment_image_tag @user, :profile_image, :fill, 20, 20, format: 'jpeg', class: " pull-left ", fallback: "no_image.jpg",size:'20x20' %>
-            <br><%= @user.name %>
+            <br><%= @user.name %>さん
           <% end %>
         </td>
-        <td><%= link_to @book1.title,book_path(@book1) %></td>
+        <td><%= @book1.title %></td>
+        <td><%= @book1.author %></td>
         <td><%= @book1.body %></td>
         <% if @user == current_user %>
-        <td><%= link_to "編集", edit_book_path(@book1),class:"btn-sm btn-success" %><td>
-        <td><%= link_to "削除", destroy_book_path(@book1), class:"btn-sm btn-danger",method: :delete, "data-confirm" => "本当に消しますか？" %>
+        <td><%= link_to "編集", edit_book_path(@book1),class:"btn-sm btn-success" %></td>
+        <td><%= link_to "削除", destroy_book_path(@book1), class:"btn-sm btn-danger",method: :delete, "data-confirm" => "本当に消しますか？" %></td>
         <% end %>
-        </td>
         <td>
           <div id="favorites_buttons_<%= @book1.id %>">
             <%= render partial: 'favorites/favorite', locals: { book1: @book1} %>
@@ -36,9 +41,11 @@
       </tr>
     </tbody>
   </table>
+  <h3>コメント欄</h3>
   <table id="book_comment">
     <%= render 'book_comments/comment', book1: @book1 %>
   </table>
+  <br>
   <%= form_with(model: [@book1, @book_comment] ) do |f| %>
   <div class="row">
     <div class="col-sm-12">
