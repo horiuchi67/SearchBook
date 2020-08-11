@@ -1,5 +1,6 @@
 <div class="body">
   <div class="container">
+    <div class="col-xs-4">
     <h2>新規登録</h2>
 
     <div class="form-body">
@@ -8,17 +9,17 @@
 
         <div class="field">
           <%= f.label :ユーザー名 %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" ,class:"form-control"%>
         </div>
 
         <div class="field">
           <%= f.label :メールアドレス %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
         </div>
 
         <div class="field">
           <%= f.label :郵便番号 %><br />
-          <%= f.text_field :postal_code, autofocus: true %>
+          <%= f.text_field :postal_code, autofocus: true,class:"form-control" %>
         </div>
 
         <div class="field">
@@ -28,12 +29,12 @@
 
          <div class="field">
           <%= f.label :市区町村 %><br />
-          <%= f.text_field :address_city, autofocus: true %>
+          <%= f.text_field :address_city, autofocus: true,class:"form-control" %>
         </div>
 
           <div class="field">
           <%= f.label :番地_建物_部屋番号 %><br />
-          <%= f.text_field :address_street, autofocus: true %>
+          <%= f.text_field :address_street, autofocus: true,class:"form-control" %>
         </div>
 
         <div class="field">
@@ -41,12 +42,12 @@
           <% if @minimum_password_length %>
           <em>（<%= @minimum_password_length %>文字以上）</em>
           <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
+          <%= f.password_field :password, autocomplete: "new-password",class:"form-control" %>
         </div>
 
         <div class="field">
           <%= f.label :パスワード確認 %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control" %>
         </div>
         <br>
         <div class="actions">
@@ -54,6 +55,7 @@
         </div>
       <% end %>
       <%= render "devise/shared/links" %>
+    </div>
     </div>
   </div>
 </div>

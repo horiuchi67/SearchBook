@@ -17,11 +17,9 @@ class BooksController < ApplicationController
       end
     end
     def index
-  	  @book = Book.new
   	  @books = Book.page(params[:page]).reverse_order
     end
     def show
-    	@book = Book.new
   	  @book1 = Book.find(params[:id])
       @user = @book1.user
       @book_comment = BookComment.new
