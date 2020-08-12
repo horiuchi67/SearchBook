@@ -9,6 +9,10 @@ class User < ApplicationRecord
   attachment :profile_image
   validates :name, presence: true, length: {minimum: 2,maximum: 20}
   validates :introduction, length: {maximum: 50}
+  validates :email, presence:true,length: {minimum: 3,maximum: 30}
+  validates :postal_code, format: {with: /\A[0-9]{7}\z/}
+  validates :address_city, presence: true,length: {minimum: 1,maximum: 30}
+  validates :address_street, presence: true,length: {minimum: 1,maximum: 40}
   has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
   has_many :followings, through: :active_relationships, source: :follower
 
