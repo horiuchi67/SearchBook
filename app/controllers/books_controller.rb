@@ -20,13 +20,13 @@ class BooksController < ApplicationController
   	  @books = Book.page(params[:page]).reverse_order
     end
     def show
-  	  @book1 = Book.find(params[:id])
-      @user = @book1.user
+  	  @book = Book.find(params[:id])
+      @user = @book.user
       @book_comment = BookComment.new
     end
     def destroy
-      @book1 = Book.find(params[:id])
-      @book1.destroy
+      @book = Book.find(params[:id])
+      @book.destroy
       redirect_to books_path
     end
     def edit

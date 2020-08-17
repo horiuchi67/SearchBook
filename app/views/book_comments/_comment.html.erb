@@ -1,4 +1,4 @@
-<% book1.book_comments.each do |book_comment| %>
+<% book.book_comments.each do |book_comment| %>
   <tr>
     <td><%= link_to user_path(book_comment.user) do %>
       <%= attachment_image_tag book_comment.user, :profile_image, :fill, 20, 20, format: 'jpeg', class: " pull-left ", fallback: "no_image.jpg",size:'20x20' %><br><%= book_comment.user.name %>さん

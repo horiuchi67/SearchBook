@@ -25,28 +25,28 @@
             <br><%= @user.name %>さん
           <% end %>
         </td>
-        <td><%= @book1.title %></td>
-        <td><%= @book1.author %></td>
-        <td><%= @book1.body %></td>
+        <td><%= @book.title %></td>
+        <td><%= @book.author %></td>
+        <td><%= @book.body %></td>
         <% if @user == current_user %>
-        <td><%= link_to "編集", edit_book_path(@book1),class:"btn-sm btn-success" %></td>
-        <td><%= link_to "削除", destroy_book_path(@book1), class:"btn-sm btn-danger",method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+        <td><%= link_to "編集", edit_book_path(@book),class:"btn-sm btn-success" %></td>
+        <td><%= link_to "削除", destroy_book_path(@book), class:"btn-sm btn-danger",method: :delete, "data-confirm" => "本当に消しますか？" %></td>
         <% end %>
         <td>
-          <div id="favorites_buttons_<%= @book1.id %>">
-            <%= render partial: 'favorites/favorite', locals: { book1: @book1} %>
+          <div id="favorites_buttons_<%= @book.id %>">
+            <%= render partial: 'favorites/favorite', locals: { book: @book} %>
           </div>
         </td>
-        <td><%= @book1.book_comments.count %>件コメント</td>
+        <td><%= @book.book_comments.count %>件コメント</td>
       </tr>
     </tbody>
   </table>
   <h3>コメント欄</h3>
   <table id="book_comment">
-    <%= render 'book_comments/comment', book1: @book1 %>
+    <%= render 'book_comments/comment', book: @book %>
   </table>
   <br>
-  <%= form_with(model: [@book1, @book_comment] ) do |f| %>
+  <%= form_with(model: [@book, @book_comment] ) do |f| %>
   <div class="row">
     <div class="col-sm-12">
       <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>

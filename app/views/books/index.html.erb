@@ -33,7 +33,7 @@
             <td><%= book.body %></td>
             <td>
               <div id="favorites_buttons_<%= book.id %>">
-              <%= render partial: 'favorites/favorite', locals: { book1: book} %>
+              <%= render partial: 'favorites/favorite', locals: { book: book} %>
               </div>
             </td>
             <td><%= book.book_comments.count %>件コメント</td>
