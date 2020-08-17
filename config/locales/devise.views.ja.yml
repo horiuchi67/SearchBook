@@ -1,0 +1,15 @@
+ja:
+  devise:
+    failure:
+      user:
+        invalid: "ログインできませんでした。"
+    registrations:
+      user:
+        signed_up: "新規登録完了しました。"
+    sessions:
+      user:
+        signed_in: "ログインしました。"
+        signed_out: "ログアウトしました"
+  errors:
+    messages:
+      not_saved: "新規登録できませんでした。"
