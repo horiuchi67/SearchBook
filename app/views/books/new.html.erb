@@ -1,5 +1,7 @@
 <div class="body">
 </div>
+<div class="body">
+</div>
   <% if @book.errors.any? %>
     <ul>
         <%= @book.errors.count %><span>error</span>
@@ -8,21 +10,27 @@
         <% end %>
     </ul>
   <% end %>
-<h3>新規投稿</h3>
-<%= form_for(@book) do |f| %>
-  <div class="field row">
-      <label>タイトル</label>
-      <%= f.text_field :title, class:"col-xs-12",class:"form-control" %>
-  </div>
-  <div class="field row">
-      <label>著者</label>
-      <%= f.text_field  :author, class:"col-xs-12",class:"form-control" %>
-  </div><br>
-  <div class="field row">
-      <label>感想</label>
-      <%= f.text_area :body, rows:'5', class:"col-xs-12",class:"form-control" %>
-  </div><br>
-  <div class="actions row center">
-      <%= f.submit '投稿',class:"btn btn-primary" %>
+  <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+  <% end %>
+
+　<h3>新規投稿</h3>
+  <%= form_for(@book) do |f| %>
+    <div class="field row">
+        <label>タイトル</label>
+        <%= f.text_field :title, class:"col-xs-12",class:"form-control" %>
+    </div>
+    <div class="field row">
+        <label>著者</label>
+        <%= f.text_field  :author, class:"col-xs-12",class:"form-control" %>
+    </div><br>
+    <div class="field row">
+        <label>感想</label>
+        <%= f.text_area :body, rows:'5', class:"col-xs-12",class:"form-control" %>
+    </div><br>
+    <div class="actions row center">
+        <%= f.submit '投稿',class:"btn btn-primary" %>
     </div>
 <% end %>
