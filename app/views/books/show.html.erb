@@ -21,7 +21,7 @@
       <tr>
         <td>
           <%= link_to user_path(@user) do %>
-            <%= attachment_image_tag @user, :profile_image, :fill, 20, 20, format: 'jpeg', class: " pull-left ", fallback: "no_image.jpg",size:'20x20' %>
+            <%= attachment_image_tag @user, :profile_image_id, :fill, 20, 20, format: 'jpeg', class: " pull-left ", fallback: "no_image.jpg",size:'20x20' %>
             <br><%= @user.name %>さん
           <% end %>
         </td>
