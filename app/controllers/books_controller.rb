@@ -13,7 +13,7 @@ class BooksController < ApplicationController
   	  redirect_to book_path(@book.id)
     else
       @book = Book.new
-      flash[:notice] = "新規投稿に失敗しました。"
+      flash[:notice] = "新規投稿できませんでした。"
       render 'new'
       end
     end
@@ -41,7 +41,7 @@ class BooksController < ApplicationController
       @book = Book.find(params[:id])
 
       if @book.update(book_params)
-        flash[:notice] = "編集しました。"
+        flash[:notice] = "編集完了しました。"
         redirect_to book_path(@book.id)
       else
         render 'edit'
