@@ -18,7 +18,22 @@ SearchBook
 ### 主な利用シーン
 本を読み終わった後や、どれを見ようか迷っているとき、時間つぶしの時に利用します。
 
-## 設計書
-
 ### 機能一覧
 <https://docs.google.com/spreadsheets/d/1J8iZvwhZPA0tqpTelRsm3Gfu0YqxZEHPTnaVued7Cnw/edit#gid=0>
+
+### 開発環境
+- OS
+Linux(Ubuntu)
+
+- 言語
+HTML,CSS,JavaScript,Ruby,SQL
+
+- フレームワーク
+Ruby on Rails
+
+- Railsライブラリ
+
+- JSライブラリ
+
+- インフラ
+AWS(EC2,RDS,EIP)
